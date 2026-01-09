@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doubt History</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Past Doubt Analytics</h1>
+        <div>
+            <a href="/doubts/dashboard" class="btn btn-secondary">Back to Live Class</a>
+            
+            <form action="/doubts/history/all?_method=DELETE" method="POST" class="d-inline" onsubmit="return confirm('Clear entire history?')">
+                <button class="btn btn-danger">Delete All History</button>
+            </form>
+        </div>
+    </div>
+    
+    <% history.forEach(session => { %>
+        <div class="card mb-3 shadow-sm">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span>
+                    <strong>Session: <%= session.timestamp.toLocaleString() %></strong> 
+                    (Total Chats: <%= session.totalChatsInChunk %>)
+                </span>
+                
+                <form action="/doubts/history/<%= session._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Delete this record?')">
+                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                </form>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <% session.topDoubts.forEach(doubt => { %>
+                        <li><strong><%= doubt.keyword %></strong>: Asked by <%= doubt.count %> students</li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    <% }) %>
+</body>
+</html>
