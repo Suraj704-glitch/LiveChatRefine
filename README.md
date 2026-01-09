@@ -15,29 +15,27 @@ By applying low-latency algorithms and efficient data structures, it enables cre
 
 ## 🔴 The Problem
 
-During massive live streams:
+During high-traffic live streams (10k+ viewers), the chat becomes extremely noisy.  
+Critical audience questions are buried under:
 
-- Critical audience doubts get lost in spam  
-- Emoji floods reduce readability  
-- Repeated messages create noise  
-- Real-time interaction becomes impossible  
+- Spam messages  
+- Repetitive emojis  
+- Irrelevant or duplicate comments  
 
-As a result, creators miss important questions and engagement suffers.
+As a result, creators and moderators struggle to identify genuine doubts in real time, leading to poor audience interaction and unanswered questions.
 
 ---
 
 ## ✅ The Solution
 
-LiveChatRefine introduces an **automated refinement pipeline** that:
+LiveChatRefine introduces an **automated, low-latency refinement pipeline** that:
 
-- Filters spam instantly  
-- Identifies genuine questions  
-- Prioritizes messages by relevance  
-- Delivers refined content to the moderator dashboard  
+- Filters spam and irrelevant messages instantly  
+- Detects and extracts meaningful audience questions  
+- Prioritizes high-impact queries using optimized Data Structures  
 
-⏱️ **End-to-end processing time:** _Sub-100ms_
+By leveraging **advanced DSA techniques**, the system achieves **sub-100ms processing latency**, ensuring that only refined, high-priority content reaches the moderator dashboard in real time.
 
----
 
 ## 🛠️ Technical Core (SDE Focus)
 
@@ -89,3 +87,13 @@ LiveChatRefine introduces an **automated refinement pipeline** that:
 
 > Built with **scalability**, **performance**, and **interview-grade DSA concepts** in mind —  
 > perfect for **real-world deployment** and **SDE portfolio projects**.
+## 🚀 Quick Start
+
+```bash
+git clone https://github.com/your-username/LiveChatRefine.git
+cd LiveChatRefine
+npm install
+echo "YOUTUBE_API_KEY=your_api_key_here" > .env
+npm run dev
+
+
